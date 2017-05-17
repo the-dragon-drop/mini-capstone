@@ -1,0 +1,28 @@
+<section>
+    <div class="row">    
+      <div class="col-sm-8 col-sm-offset-2">
+        <div class="product_single row">
+          <h2><%= @product.name %></h2>
+          <div class="col-md-6">
+            <% if @product.discounted? %>
+              <h4>Discount Item!</h4>
+            <% else %>
+              <h4>Everyday Value!!</h4>
+            <% end %>
+            <p class="<%= "red-price" if @product.discounted? %>">Price: <%= number_to_currency(@product.price) %></p>
+            <p>Tax: <%= number_to_currency(@product.tax) %></p>
+            <p>Total: <%= number_to_currency(@product.total) %></p>
+            <p>Description: <%= @product.description %></p>
+          </div>
+          <div class="col-md-6">
+            <img src="<%= @product.first_image_url %>" alt="<%= @product.name %>" class="img-responsive show-product">
+          </div>
+
+          <h5>supplied by <%= @product.supplier.name %></h5>
+          
+          <%= link_to "Edit", "/products/#{@product.id}/edit", class: "btn btn-success" %>
+          <%= link_to "Delete", "/products/#{@product.id}", {method: :delete, class: "btn btn-danger" }%>
+        </div>
+      </div>
+    </div>
+  </section>
