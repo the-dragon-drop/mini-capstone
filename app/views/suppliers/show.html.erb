@@ -1,0 +1,15 @@
+<h1>Supplier Page</h1>
+
+<h2>Supplier: <%= @supplier.name %></h2>
+<h3>Email: <%= @supplier.email %></h3>
+<h3>Phone: <%= @supplier.phone %></h3>
+
+<h3>Products from supplier</h3>
+<ul>
+  <% @supplier.products.each do |product| %>
+    <li><%= link_to product.name, "/products/#{product.id}" %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Edit", "/suppliers/#{@supplier.id}/edit", class: "btn btn-warning" %>
+<%= link_to "Delete", "/suppliers/#{@supplier.id}", data:{ confirm: "Are you sure you want to delete this supplier", method: :delete}, class: "btn btn-danger" %>
