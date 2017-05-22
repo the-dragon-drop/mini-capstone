@@ -1,17 +1,25 @@
-<h1>Edit Supplier</h1>
+<section>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="product_single">
+        <h1>Edit Supplier</h1>
 
-<%= form_tag "/suppliers/#{@supplier.id}", method: :patch do %>
-  <div>
-    <%= label_tag :name %>
-    <%= text_field_tag :name, @supplier.name %>
+        <%= form_tag "/suppliers/#{@supplier.id}", method: :patch do %>
+        <div class="form-group">
+          <%= label_tag :name %>
+          <%= text_field_tag :name, @supplier.name, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= label_tag :email %>
+          <%= text_field_tag :email, @supplier.email, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= label_tag :phone %>
+          <%= text_field_tag :phone, @supplier.phone, class: "form-control" %>
+        </div>
+        <%= submit_tag "Update Supplier", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <div>
-    <%= label_tag :email %>
-    <%= text_field_tag :email, @supplier.email %>
-  </div>
-  <div>
-    <%= label_tag :phone %>
-    <%= text_field_tag :phone, @supplier.phone %>
-  </div>
-  <%= submit_tag "Update Supplier", class: "btn btn-primary" %>
-<% end -%>
+</section>
