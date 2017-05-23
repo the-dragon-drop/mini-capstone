@@ -2,7 +2,7 @@
   <div class="row">           
     <div class="col-sm-8 col-sm-offset-2">         
       <div class="product_single row">           
-        <h2><%=@product.name %></h2>           
+        <h2><%= @product.name %></h2>           
         <div class="col-md-6">             
           <% if@product.discounted? %>               
             <h4>Discount Item!</h4>             
@@ -13,6 +13,7 @@
              <p>Tax: <%= number_to_currency(@product.tax) %></p>
              <p>Total: <%= number_to_currency(@product.total) %></p>
              <p>Description: <%= @product.description %></p>
+             <p>Categories: <%= @product.stringify_categories %></p>
            </div>
 
           <div class="col-md-6">
