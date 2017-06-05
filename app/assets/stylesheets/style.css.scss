@@ -88,7 +88,24 @@ header h1{
   color: black;
  }
 
-
+table {
+  background-color: #FFA;
+  width: 60%;
+  margin: 0 auto;
+  border: solid black 1px;
+  th {
+    border-bottom: solid #800 2px;
+  }
+  td, th {
+    padding: 5px;
+  }
+  td + td, th + th {
+    border-left: solid black 1px;
+  }
+  #total-line {
+    border-top: dashed #800 1px;
+  }
+}
 
 
 

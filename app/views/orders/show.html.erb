@@ -3,11 +3,33 @@
 <div class="well">
   <h2>Order #: 57600<%= @order.id %></h2>
 
-  <% @order.carted_products.each do |carted_product| %>
-    <h3><%= carted_product.product.name %> - <%= number_to_currency(carted_product.product.price) %> X <%= carted_product.quantity %></h3>
-  <% end %>
-
-  <h3>Subtotal: <%= number_to_currency(@order.subtotal) %></h3>
-  <h3>Tax: <%= number_to_currency(@order.tax) %></h3>
-  <h3>Total: <%= number_to_currency(@order.total) %></h3>
+  <table>
+    <tr>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+    <% @order.carted_products.each do |carted_product| %>
+      <tr>
+        <td><%= carted_product.product.name %></td>
+        <td><%= carted_product.quantity %></td>
+        <td><%= number_to_currency(carted_product.product.price) %></td>
+      </tr>
+    <% end %>
+    <tr id="total-line">
+      <td></td>
+      <td>Subtotal</td>
+      <td><%= number_to_currency(@order.subtotal) %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Tax</td>
+      <td><%= number_to_currency(@order.tax) %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Total</td>
+      <td><%= number_to_currency(@order.total) %></td>
+    </tr>
+  </table>
 </div>
